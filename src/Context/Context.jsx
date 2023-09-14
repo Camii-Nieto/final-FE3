@@ -19,7 +19,6 @@ const reducer = (state, action) => {
             if (isDentistInFavs === -1) {
             return {...state, favs: [...state.favs, action.payload]}
             } else {
-            console.log('Ya esta en favs');
             return state;
             }
         case 'SWITCH_THEME':

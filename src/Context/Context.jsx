@@ -19,10 +19,16 @@ const reducer = (state, action) => {
             if (isDentistInFavs === -1) {
             return {...state, favs: [...state.favs, action.payload]}
             } else {
+                console.log('Ya se agrego');
             return state;
             }
         case 'SWITCH_THEME':
-            return {...state, theme: !state.theme}
+            if(state.theme === 'dark'){
+                state.theme='light'
+            } else {
+                state.theme='dark'
+            }
+            return {...state, theme: state.theme}
         default:
             throw new Error()
     }
@@ -35,7 +41,7 @@ const initialState = {
     dentists: [],
     dentist: {},
     favs: initialFavState,
-    theme: true,
+    theme: 'light',
 }
 
 const Context = ({children}) => {
@@ -54,6 +60,13 @@ const Context = ({children}) => {
         localStorage.setItem('favs', JSON.stringify(state.favs))
     }, [state.favs])
     
+    useEffect(()=>{
+        if(state.theme === 'dark'){
+            document.querySelector('html').classList.add('dark')
+        } else {
+            document.querySelector('html').classList.remove('dark')
+        }
+    }, [state.theme])
 
     return(
         <OdontoStates.Provider value={{dispatch, state}}>

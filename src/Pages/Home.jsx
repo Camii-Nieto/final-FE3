@@ -9,9 +9,9 @@ const Home = () => {
 
   const {state} = useOdontoStates()
   return (
-    <main className="" >
-      <h1>Home</h1>
-      <div className='card-grid'>
+    <main className="flex flex-col items-center justify-center dark:bg-neutral-700" >
+      <h1 className='text-4xl font-bold my-8'>Home</h1>
+      <div className="grid gap-10 grid-cols-4 content-center px-32 py-8">
       {state.dentists.map(dentist => <Card dentist={dentist} key={dentist.id}/>)}
       </div>
     </main>

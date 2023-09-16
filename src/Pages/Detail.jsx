@@ -26,15 +26,29 @@ const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   return (
-    <>
-      <h1>Detail Dentist id </h1>
+    <main className='h-screen flex flex-col justify-start p-8 items-center dark:bg-neutral-700 dark:text-white'>
+      <h1 className='text-3xl font-semibold'>Detail Dentist {id} </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      <span>{name}</span>
-      <span>{email}</span>
-      <span>{website}</span>
-      <span>{phone}</span>
-    </>
+      <table className="table-fixed w-full text-center mt-10 border-2 rounded-lg  border-gray-200">
+      <thead className='border-2 rounded-lg  border-gray-200'>
+          <tr className='border-2 rounded-lg  border-gray-200'>
+            <th className='border-2 rounded-lg  border-gray-200'>Name</th>
+            <th className='border-2 rounded-lg  border-gray-200'>Email</th>
+            <th className='border-2 rounded-lg  border-gray-200'>Website</th>
+            <th className='border-2 rounded-lg  border-gray-200'>Phone</th>
+          </tr>
+        </thead>
+        <tbody className='border-2 rounded-lg  border-gray-200'>
+          <tr>
+            <td className='border-2 rounded-lg  border-gray-200'>{name}</td>
+            <td className='border-2 rounded-lg  border-gray-200'>{email}</td>
+            <td className='border-2 rounded-lg  border-gray-200'>{website}</td>
+            <td className='border-2 rounded-lg  border-gray-200'>{phone}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   )
 }
 

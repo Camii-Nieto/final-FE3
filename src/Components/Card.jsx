@@ -11,7 +11,7 @@ const Card = ({dentist}) => {
   }
 
   return (
-    <div className="border-2 rounded-lg  border-gray-100">
+    <div className="border-2 rounded-lg  border-gray-200 dark:bg-black dark:text-white">
         {/* En cada card deberan mostrar en name - username y el id */}
         {/* <Link to={`/detail/${char.id}`}> */}
         <img src='images/doctor.jpg' alt=""/>
@@ -23,7 +23,7 @@ const Card = ({dentist}) => {
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="shadow-sm py-2 px-20 my-2 border-2 rounded-lg border-gray-100">⭐</button>
+        <button onClick={addFav} className="shadow-sm py-2 px-20 my-2 border-2 rounded-lg border-gray-200 dark:bg-neutral-700">⭐</button>
         </div>
     </div>
   );

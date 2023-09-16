@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {createContext, useContext, useState, useReducer, useEffect} from 'react'
+import {createContext, useContext, useReducer, useEffect} from 'react'
 
 
 const OdontoStates = createContext()
@@ -17,9 +17,11 @@ const reducer = (state, action) => {
             );
 
             if (isDentistInFavs === -1) {
+            alert('Dentista agregado con exito!')
             return {...state, favs: [...state.favs, action.payload]}
+            
             } else {
-                console.log('Ya se agrego');
+            alert('El dentista '+ action.payload.name +' ya se encuentra en favoritos')
             return state;
             }
         case 'SWITCH_THEME':

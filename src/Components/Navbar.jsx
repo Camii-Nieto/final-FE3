@@ -5,15 +5,15 @@ import { useOdontoStates } from '../Context/Context'
 
 const Navbar = () => {
 
-  const {dispatch} = useOdontoStates()
+  const {dispatch,state} = useOdontoStates()
 
   const setTheme = () => {
     dispatch({type: 'SWITCH_THEME'})
 }
 
   return (
-    <nav className='flex justify-between p-3 bg-zinc-100'>
-      <h1 className='text-xl font-semibold'>DH Odonto</h1>
+    <nav className='flex justify-between p-3 bg-zinc-100 dark:bg-black dark:text-white'>
+      <h1 className='text-xl font-semibold'> <span className='text-red-600'>DH</span> Odonto</h1>
       <div className="cont-der flex">
       <ul className='grid gap-8 grid-cols-4 content-center'>
         <Link to='/'>Home</Link>
@@ -22,7 +22,7 @@ const Navbar = () => {
       </ul>
       {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
       {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={setTheme} className='border-2 rounded-lg  border-gray-300 p-1 bg-black'>🌙</button>
+      <button onClick={setTheme} className='border-2 rounded-lg  border-gray-300 p-1 bg-black dark:bg-white'>{state.theme == 'light'? '🌙' : '☀️'}</button>
       </div>
     </nav>
   )
